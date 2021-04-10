@@ -8,6 +8,8 @@ import List from "./Pages/List";
 const GlobalStyle = createGlobalStyle`
   body {
       margin: 0;
+      background: black;
+      color: white;
   }
   * {
       box-sizing: border-box;

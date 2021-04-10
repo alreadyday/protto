@@ -1,11 +1,14 @@
 import React from "react";
-import { LoadingIconProvider } from "./modules/loading/LoadingIcon";
+import { ListContextProvider } from "./modules/List/Context";
+import { LoadingIconProvider } from "./modules/Loading/Context";
 import Page from "./page";
 
-export default function List() {
+export default function ListPageEntry() {
   return (
     <LoadingIconProvider>
-      <Page />
+      <ListContextProvider>
+        <Page />
+      </ListContextProvider>
     </LoadingIconProvider>
   );
 }
