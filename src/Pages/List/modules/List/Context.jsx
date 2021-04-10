@@ -1,4 +1,5 @@
 import React from "react";
+import { OffsetTotalContext } from "../../Context/OffsetTotal";
 
 // create default context
 export const ListContext = React.createContext();
@@ -17,4 +18,13 @@ export const ListContextProvider = ({ children }) => {
       {children}
     </ListContext.Provider>
   );
+};
+
+// get list impl
+export const listGet = function (offsetTotal) {
+  return fetch(
+    `https://api.opensea.io/api/v1/assets?offsetTotal=${offsetTotal}`
+  )
+    .then((response) => response.json())
+    .then(({ assets }) => assets);
 };
