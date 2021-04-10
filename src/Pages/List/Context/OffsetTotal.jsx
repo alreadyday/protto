@@ -6,11 +6,14 @@ export const OffsetTotalContext = React.createContext();
 // set provider
 export const OffsetTotalContextProvider = ({ children }) => {
   const [offsetTotal, setOffsetTotal] = React.useState(0);
+  const [offsetRuntime, setOffsetRunTime] = React.useState(0);
   const detectScroll = () => {
     const scroll = window.scrollY;
     const currentHeight = window.innerHeight + scroll;
-    if (currentHeight === document.body.clientHeight) {
-      setOffsetTotal(offsetTotal + 1);
+    const isPageBottom = currentHeight > document.body.clientHeight;
+    const isRunning = offsetRuntime === offsetTotal + 1;
+    if (isPageBottom && !isRunning) {
+      setOffsetRunTime(offsetTotal + 1);
     }
   };
   React.useEffect(() => {
@@ -22,6 +25,7 @@ export const OffsetTotalContextProvider = ({ children }) => {
     <OffsetTotalContext.Provider
       value={{
         offsetTotal,
+        offsetRuntime,
         setOffsetTotal,
       }}
     >

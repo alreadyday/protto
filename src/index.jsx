@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 import Detail from "./Pages/Detail";
 import List from "./Pages/List";
 
 const GlobalStyle = createGlobalStyle`
   body {
-      margin: 0;
+      margin: 50px;
       background: black;
       color: white;
   }
@@ -26,9 +26,9 @@ function RouteEntry() {
 }
 
 ReactDOM.render(
-  <HashRouter>
+  <BrowserRouter>
     <GlobalStyle />
     <RouteEntry />
-  </HashRouter>,
+  </BrowserRouter>,
   document.getElementById("root")
 );
