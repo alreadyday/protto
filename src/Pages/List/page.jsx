@@ -1,8 +1,14 @@
 import React from "react";
-import { LoadingIconContext } from "./Context/loadingIcon";
+import { LoadingIconContext } from "./modules/loading/LoadingIcon";
+import { ReactComponent as LoadingIcon } from "./modules/loading/Loading.svg";
 
 export default function ListPage() {
   const { loading } = React.useContext(LoadingIconContext);
-  console.warn(loading);
-  return <div>List</div>;
+  console.warn(LoadingIcon);
+  return (
+    <div>
+      List
+      <LoadingIcon />
+    </div>
+  );
 }
