@@ -1,5 +1,11 @@
 import React from "react";
+import { DetailContextProvider } from "./Context";
+import Page from "./Page";
 
-export default function Detail() {
-  return <div>Detail</div>;
+export default function DetailIndex() {
+  return (
+    <DetailContextProvider>
+      <Page />
+    </DetailContextProvider>
+  );
 }

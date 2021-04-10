@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 import Detail from "./Pages/Detail";
 import List from "./Pages/List";
@@ -19,16 +19,16 @@ const GlobalStyle = createGlobalStyle`
 function RouteEntry() {
   return (
     <Switch>
-      <Route exact path="/" render={List} />
-      <Route path="/detail" render={Detail} />
+      <Route exact path="/" component={List} />
+      <Route path="/detail" component={Detail} />
     </Switch>
   );
 }
 
 ReactDOM.render(
-  <BrowserRouter>
+  <HashRouter>
     <GlobalStyle />
     <RouteEntry />
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById("root")
 );
