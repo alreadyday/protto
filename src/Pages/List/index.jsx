@@ -1,5 +1,11 @@
 import React from "react";
+import { LoadingIconProvider } from "./Context/loadingIcon";
+import Page from "./page";
 
 export default function List() {
-  return <div>List</div>;
+  return (
+    <LoadingIconProvider>
+      <Page />
+    </LoadingIconProvider>
+  );
 }
