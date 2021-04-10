@@ -1,6 +1,5 @@
 extends:
   eslint-config-airbnb
-  eslint-plugin-react-hooks
 
 parser:
   babel-eslint
