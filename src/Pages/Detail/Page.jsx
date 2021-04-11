@@ -11,7 +11,7 @@ const DetailWrapper = styled.div`
 `;
 
 const DetailImg = styled.img`
-  height: 300px;
+  width: 100%;
 `;
 
 // render detail
@@ -36,7 +36,9 @@ export default function DetailPage() {
         <DetailImg src={detail.image_url} />
         <p>{detail.name}</p>
         <p>{detail.description}</p>
-        <a href={detail.permalink}>Permalink</a>
+        <button onClick={() => (window.location = detail.permalink)}>
+          Permalink
+        </button>
       </DetailWrapper>
     </div>
   );
