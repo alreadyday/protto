@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { OffsetContext, offsetInit } from "../../Context/Offset";
 import { ListContext, listInit } from "./Context";
+import { DAppAccount } from "../../Context/DAppAccount";
 
 const CardWrapper = styled.div`
   display: flex;
@@ -30,11 +31,13 @@ const CardName = styled.p`
 `;
 
 export default function ListModule() {
+  const dAppAccount = React.useContext(DAppAccount);
   const listContext = React.useContext(ListContext);
   const offsetContext = React.useContext(OffsetContext);
   const { list } = listContext;
-  listInit(listContext, offsetContext);
-  offsetInit(offsetContext);
+  dAppAccount.init(dAppAccount);
+  listContext.init(listContext, offsetContext, dAppAccount);
+  offsetContext.init(offsetContext);
   return (
     <CardWrapper>
       {list.map((value, i) => {

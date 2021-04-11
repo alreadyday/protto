@@ -19,6 +19,7 @@ export const OffsetContextProvider = ({ children }) => {
         offsetRuntime,
         setOffsetTotal,
         setOffsetRunTime,
+        init: offsetInit,
       }}
     >
       {children}

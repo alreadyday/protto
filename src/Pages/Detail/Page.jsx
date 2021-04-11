@@ -20,7 +20,7 @@ export default function DetailPage() {
   const { detail } = detailContext;
   const location = useLocation();
 
-  DetailInit(detailContext, location);
+  detailContext.init(detailContext, location);
 
   if (!detail) {
     return <LoadingModule />;

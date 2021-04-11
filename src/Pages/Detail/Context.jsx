@@ -13,6 +13,7 @@ export const DetailContextProvider = ({ children }) => {
       value={{
         detail,
         setDetail,
+        init: detailInit,
       }}
     >
       {children}
@@ -21,7 +22,7 @@ export const DetailContextProvider = ({ children }) => {
 };
 
 // get list impl
-export const DetailInit = function ({ setDetail }, location) {
+export const detailInit = function ({ setDetail }, location) {
   React.useEffect(() => {
     const { contract, token_id } = queryString.parse(location.search);
     fetch(`https://api.opensea.io/api/v1/asset/${contract}/${token_id}`)
