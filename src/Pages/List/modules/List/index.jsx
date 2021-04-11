@@ -10,7 +10,7 @@ const CardWrapper = styled.div`
 `;
 
 const Card = styled(Link)`
-  width: 200px;
+  width: 25%;
   height: 250px;
   display: flex;
   flex-flow: column;
