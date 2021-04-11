@@ -27,6 +27,7 @@ export const listGet = function (offsetTotal) {
     .then(({ assets }) => assets);
 };
 
+// trigger when request new list
 export const listInit = function (listContext, offsetContext) {
   const { offsetRuntime, setOffsetTotal } = offsetContext;
   const { list, setList } = listContext;

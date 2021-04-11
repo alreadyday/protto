@@ -7,7 +7,9 @@ export const OffsetTotalContext = React.createContext();
 
 // set provider
 export const OffsetTotalContextProvider = ({ children }) => {
+  // offsetTotal - current list offset
   const [offsetTotal, setOffsetTotal] = React.useState(0);
+  // offsetRuntime - ongoing offset, getting list data
   const [offsetRuntime, setOffsetRunTime] = React.useState(0);
 
   return (
@@ -24,6 +26,7 @@ export const OffsetTotalContextProvider = ({ children }) => {
   );
 };
 
+// create detect scroll event and called when get new list
 export const detectFactory = (offsetContext) => () => {
   const { offsetRuntime, offsetTotal, setOffsetRunTime } = offsetContext;
   const scroll = window.scrollY;
@@ -35,6 +38,7 @@ export const detectFactory = (offsetContext) => () => {
   }
 };
 
+// subscribe a scroll detect event for getting new list
 export const offsetInit = function (offsetContext) {
   React.useEffect(() => {
     const detectCallback = detectFactory(offsetContext);

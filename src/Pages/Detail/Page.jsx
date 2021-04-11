@@ -15,7 +15,6 @@ const DetailImg = styled.img`
 `;
 
 // render detail
-
 export default function DetailPage() {
   const detailContext = React.useContext(DetailContext);
   const { detail } = detailContext;
@@ -37,6 +36,7 @@ export default function DetailPage() {
         <DetailImg src={detail.image_url} />
         <p>{detail.name}</p>
         <p>{detail.description}</p>
+        <a href={detail.permalink}>Permalink</a>
       </DetailWrapper>
     </div>
   );
