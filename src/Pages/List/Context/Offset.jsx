@@ -1,19 +1,19 @@
 import React from "react";
 import { fromEvent, interval } from "rxjs";
-import { debounce, throttle } from "rxjs/operators";
+import { debounce } from "rxjs/operators";
 
 // create default context
-export const OffsetTotalContext = React.createContext();
+export const OffsetContext = React.createContext();
 
 // set provider
-export const OffsetTotalContextProvider = ({ children }) => {
+export const OffsetContextProvider = ({ children }) => {
   // offsetTotal - current list offset
   const [offsetTotal, setOffsetTotal] = React.useState(0);
   // offsetRuntime - ongoing offset, getting list data
   const [offsetRuntime, setOffsetRunTime] = React.useState(0);
 
   return (
-    <OffsetTotalContext.Provider
+    <OffsetContext.Provider
       value={{
         offsetTotal,
         offsetRuntime,
@@ -22,7 +22,7 @@ export const OffsetTotalContextProvider = ({ children }) => {
       }}
     >
       {children}
-    </OffsetTotalContext.Provider>
+    </OffsetContext.Provider>
   );
 };
 

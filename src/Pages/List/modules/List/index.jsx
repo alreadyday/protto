@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { OffsetTotalContext, offsetInit } from "../../Context/OffsetTotal";
+import { OffsetContext, offsetInit } from "../../Context/Offset";
 import { ListContext, listInit } from "./Context";
 
 const CardWrapper = styled.div`
@@ -31,7 +31,7 @@ const CardName = styled.p`
 
 export default function ListModule() {
   const listContext = React.useContext(ListContext);
-  const offsetContext = React.useContext(OffsetTotalContext);
+  const offsetContext = React.useContext(OffsetContext);
   const { list } = listContext;
   listInit(listContext, offsetContext);
   offsetInit(offsetContext);

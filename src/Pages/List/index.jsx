@@ -1,14 +1,14 @@
 import React from "react";
-import { OffsetTotalContextProvider } from "./Context/OffsetTotal";
+import { OffsetContextProvider } from "./Context/Offset";
 import { ListContextProvider } from "./Modules/List/Context";
 import Page from "./Page";
 
 export default function ListPageIndex() {
   return (
-    <OffsetTotalContextProvider>
+    <OffsetContextProvider>
       <ListContextProvider>
         <Page />
       </ListContextProvider>
-    </OffsetTotalContextProvider>
+    </OffsetContextProvider>
   );
 }
