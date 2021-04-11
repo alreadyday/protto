@@ -26,3 +26,13 @@ export const listGet = function (offsetTotal) {
     .then((response) => response.json())
     .then(({ assets }) => assets);
 };
+
+export const listInit = function (listContext, offsetContext) {
+  const { offsetRuntime, setOffsetTotal } = offsetContext;
+  const { list, setList } = listContext;
+  React.useEffect(async () => {
+    const newList = await listGet(offsetRuntime);
+    setList([...list, ...newList]);
+    setOffsetTotal(offsetRuntime);
+  }, [offsetRuntime]);
+};

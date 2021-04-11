@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { OffsetTotalContext } from "../../Context/OffsetTotal";
-import { ListContext, listGet } from "./Context";
+import { OffsetTotalContext, offsetInit } from "../../Context/OffsetTotal";
+import { ListContext, listInit } from "./Context";
 
 const CardWrapper = styled.div`
   display: flex;
@@ -23,15 +23,11 @@ const CardImg = styled.img`
 `;
 
 export default function ListModule() {
-  const { list, setList } = React.useContext(ListContext);
-  const { offsetRuntime, setOffsetTotal } = React.useContext(
-    OffsetTotalContext
-  );
-  React.useEffect(async () => {
-    const newList = await listGet(offsetRuntime);
-    setList([...list, ...newList]);
-    setOffsetTotal(offsetRuntime);
-  }, [offsetRuntime]);
+  const listContext = React.useContext(ListContext);
+  const offsetContext = React.useContext(OffsetTotalContext);
+  const { list } = listContext;
+  listInit(listContext, offsetContext);
+  offsetInit(offsetContext);
   return (
     <CardWrapper>
       {list.map((value) => {
