@@ -1,4 +1,6 @@
 import React from "react";
+import { fromEvent, interval } from "rxjs";
+import { debounce, throttle } from "rxjs/operators";
 
 // create default context
 export const OffsetTotalContext = React.createContext();
@@ -22,7 +24,7 @@ export const OffsetTotalContextProvider = ({ children }) => {
   );
 };
 
-export const detectScroll = (offsetContext) => () => {
+export const detectFactory = (offsetContext) => () => {
   const { offsetRuntime, offsetTotal, setOffsetRunTime } = offsetContext;
   const scroll = window.scrollY;
   const currentHeight = window.innerHeight + scroll;
@@ -35,8 +37,10 @@ export const detectScroll = (offsetContext) => () => {
 
 export const offsetInit = function (offsetContext) {
   React.useEffect(() => {
-    const detectCallback = detectScroll(offsetContext);
-    window.addEventListener("scroll", detectCallback);
-    return () => window.removeEventListener("scroll", detectCallback);
-  }, []);
+    const detectCallback = detectFactory(offsetContext);
+    const scrollEvent = fromEvent(document, "scroll");
+    const result = scrollEvent.pipe(debounce(() => interval(1000)));
+    const subscription = result.subscribe(detectCallback);
+    return () => subscription.unsubscribe();
+  }, [offsetContext.offsetTotal]);
 };

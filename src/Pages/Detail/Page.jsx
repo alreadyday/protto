@@ -3,13 +3,13 @@ import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { DetailContext, DetailInit } from "./Context";
 
-export const DetailWrapper = styled.div`
+const DetailWrapper = styled.div`
   display: flex;
   flex-flow: column;
   align-items: center;
 `;
 
-export const DetailImg = styled.img`
+const DetailImg = styled.img`
   height: 300px;
 `;
 

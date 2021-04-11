@@ -15,11 +15,18 @@ const Card = styled(Link)`
   display: flex;
   flex-flow: column;
   align-items: center;
+  @media only screen and (max-width: 768px) {
+    width: 50%;
+  }
 `;
 
 const CardImg = styled.img`
-  width: 150px;
   height: 150px;
+  max-width: 100%;
+`;
+
+const CardName = styled.p`
+  text-align: center;
 `;
 
 export default function ListModule() {
@@ -30,14 +37,14 @@ export default function ListModule() {
   offsetInit(offsetContext);
   return (
     <CardWrapper>
-      {list.map((value) => {
+      {list.map((value, i) => {
         return (
           <Card
-            key={value.id}
+            key={i}
             to={`/detail?token_id=${value.token_id}&contract=${value.asset_contract.address}`}
           >
             <CardImg src={value.image_url} />
-            {value.name}
+            <CardName>{value.name}</CardName>
           </Card>
         );
       })}
