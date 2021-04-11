@@ -1,6 +1,6 @@
 import React from "react";
-import List from "./modules/List";
-import Loading from "./modules/Loading";
+import List from "./Modules/List";
+import Loading from "../../Modules/Loading";
 
 export default function ListPage() {
   return (

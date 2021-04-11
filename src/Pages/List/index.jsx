@@ -1,7 +1,7 @@
 import React from "react";
 import { OffsetTotalContextProvider } from "./Context/OffsetTotal";
-import { ListContextProvider } from "./modules/List/Context";
-import Page from "./page";
+import { ListContextProvider } from "./Modules/List/Context";
+import Page from "./Page";
 
 export default function ListPageIndex() {
   return (
