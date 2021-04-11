@@ -31,6 +31,8 @@ export const init = async function (context) {
   }
   web3.eth.getAccounts((error, state) => {
     // if (error) {
+
+    // my account have no data, but still impl it
     setDAppAccount(defaultAccount);
     // } else {
     //   setDAppAccount(state[0]);
