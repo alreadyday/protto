@@ -29,8 +29,11 @@ This project is demo page of Protto Homework.
                 1. Context
 
 # package usage
-    #html-loader - load html into webpack
-    #svg-url-loader - load svg file
-    #@babel/plugin-proposal-class-properties - enable class #property (state in class)
-    #webpack-dev-server - dev web project
-    #eslint - check eslint
+    html-loader - load html into webpack
+    svg-url-loader - load svg file
+    @babel/plugin-proposal-class-properties - enable class property (state in class)
+    webpack-dev-server - dev web project
+    eslint - check eslint
+    rxjs - handle document event
+    query-string - parse url
+    styled-components - dynamic classname
