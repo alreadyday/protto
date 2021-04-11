@@ -11,7 +11,7 @@ const DetailWrapper = styled.div`
 `;
 
 const DetailImg = styled.img`
-  width: 100%;
+  height: 150px;
 `;
 
 // render detail
