@@ -1,20 +1,37 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
-import queryString from "query-string";
-import { DetailContext, DetailGet } from "./Context";
+import { Link, useLocation } from "react-router-dom";
+import styled from "styled-components";
+import { DetailContext, DetailInit } from "./Context";
+
+export const DetailWrapper = styled.div`
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+`;
+
+export const DetailImg = styled.img`
+  height: 300px;
+`;
 
 export default function DetailPage() {
-  const { detail, setDetail } = React.useContext(DetailContext);
+  const detailContext = React.useContext(DetailContext);
+  const { detail } = detailContext;
   const location = useLocation();
-  React.useEffect(async () => {
-    const { contract, token_id } = queryString.parse(location.search);
-    const res = await DetailGet(contract, token_id);
-    setDetail(res);
-  }, []);
+
+  DetailInit(detailContext, location);
+
   return (
     detail && (
       <div>
-        <img src={detail.image_url} />
+        <Link to="/">
+          &lt;&nbsp;
+          {detail.collection.name}
+        </Link>
+        <DetailWrapper>
+          <DetailImg src={detail.image_url} />
+          <p>{detail.name}</p>
+          <p>{detail.description}</p>
+        </DetailWrapper>
       </div>
     )
   );
